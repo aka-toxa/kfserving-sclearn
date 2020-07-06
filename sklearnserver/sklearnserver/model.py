@@ -38,7 +38,9 @@ class SKLearnModel(kfserving.KFModel): #pylint:disable=c-extension-no-member
         self.ready = True
 
     def predict(self, request: Dict) -> Dict:
+        print("got request")
         instances = request["instances"]
+        print(instances[0])
         try:
             inputs = np.array(instances)
         except Exception as e:
